@@ -30,5 +30,7 @@ jobs:
         tccli configure set region $REGION
     - name: 制品部署
       run: |
-        coscmd upload -rfs --delete ./* /
+        for dirs in `ls |grep -Ev 'README.md|LICENSE|build'`;do
+          coscmd upload -rfs --delete ./${dirs} /
+        done
         tccli PurgePathCache --cli-unfold-argument --Paths https://shell-builder.init.ac/ --FlushType flush

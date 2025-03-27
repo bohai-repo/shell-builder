@@ -8,7 +8,7 @@ function build() {
         echo "开始处理: ${file_path}/${file_name}"
         cd "$file_path"
         #shc -v -r -f "${file_name}.sh" &>/dev/null
-        shc -v -r -f "${file_name}.sh" &>/dev/null
+        shc -v -r -f "${file_name}.sh"
 
         mv "${file_name}.sh.x" "$file_name"
         chmod +x "$file_name"

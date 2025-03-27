@@ -3,7 +3,7 @@ name: build and deployment
 on: [push]
 
 jobs:
-  deploy_integration_test:
+  builder:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Branch
@@ -11,7 +11,7 @@ jobs:
     - name: Build
       run: |
         chmod +x build
-        sh build
+        bash build
 #    - name: config
 #      env:
 #        SECRET_ID: ${{ secrets.COS_API_ID }}

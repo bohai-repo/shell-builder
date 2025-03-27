@@ -11,8 +11,8 @@ jobs:
     - name: 依赖安装
       run: |
         sudo apt install shc tree -y
-        sudo pip2 install coscmd
-        sudo pip2 install tccli
+        sudo pip install coscmd
+        sudo pip install tccli
     - name: 执行构建
       run: |
         chmod +x build

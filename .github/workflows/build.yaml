@@ -10,6 +10,7 @@ jobs:
       uses: actions/checkout@master
     - name: Build
       run: |
+        apt install shc gcc -y
         chmod +x build
         bash build
 #    - name: config

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+function build() {
+    for files in $(find . -type f -name "*.sh" ! -path "./build.sh"); do
+      file_path=$(dirname "$files")
+      file_name=$(basename "$files" .sh)
+      (
+        echo "开始处理: ${file_path}/${file_name}"
+        cd "$file_path"
+        shc -v -r -f "${file_name}.sh" &>/dev/null
+        mv "${file_name}.sh.x" "$file_name"
+        chmod +x "$file_name"
+        rm -rf *.sh.x.c
+      )
+    done
+}
+
+function clear() {
+    for files in $(find . -type f -name "*.sh" ! -path "./build.sh"); do
+      file_path=$(dirname "$files")
+      file_name=$(basename "$files" .sh)
+      (
+        cd "$file_path"
+        rm -rf *.sh
+      )
+    done
+}
+
+
+build && clear

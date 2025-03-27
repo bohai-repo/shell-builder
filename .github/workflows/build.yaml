@@ -1,0 +1,29 @@
+name: build and deployment
+
+on: [push]
+
+jobs:
+  deploy_integration_test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Branch
+      uses: actions/checkout@master
+    - name: Build
+      run: |
+        chmod +x build
+        sh build
+#    - name: config
+#      env:
+#        SECRET_ID: ${{ secrets.COS_API_ID }}
+#        SECRET_KEY: ${{ secrets.COS_API_KEY }}
+#        BUCKET: ${{ secrets.COS_BUCKET_TEST }}
+#        REGION: ap-shanghai
+#      run: |
+#        coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
+#        tccli configure set secretId $SECRET_ID
+#        tccli configure set secretKey $SECRET_KEY
+#        tccli configure set region $REGION
+#    - name: deployment
+#      run: |
+#        coscmd upload -rfs --delete ./* /
+#        tccli PurgePathCache --cli-unfold-argument --Paths https://xxxxx/ --FlushType flush

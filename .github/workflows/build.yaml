@@ -33,4 +33,3 @@ jobs:
         for dirs in `ls |grep -Ev 'README.md|LICENSE|build'`;do
           coscmd upload -rfs --delete ./${dirs} /
         done
-        tccli PurgePathCache --cli-unfold-argument --Paths https://shell-builder.init.ac/ --FlushType flush

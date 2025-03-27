@@ -10,7 +10,7 @@ jobs:
       uses: actions/checkout@master
     - name: Build
       run: |
-        sudo apt install shc -y
+        sudo apt install shc tree -y
         chmod +x build
         bash build
 #    - name: config

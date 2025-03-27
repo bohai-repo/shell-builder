@@ -29,4 +29,4 @@ function clear() {
 }
 
 
-build && clear
+build && clear && tree

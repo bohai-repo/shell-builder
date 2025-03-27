@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 # 依赖jq工具
 # yum -y install epel-release && yum -y install jq
 set -e

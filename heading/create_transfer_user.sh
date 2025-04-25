@@ -17,6 +17,11 @@ datasource_instance_name=${datasource_instance_name:-hdposcs}
 
 datasource_transfer_password=${datasource_transfer_password:-27y8CGYf8pHf}
 
+echo ""
+echo ""
+echo ""
+echo ""
+
 echo "开始创建transfer用户: ${datasource_transfer_username}"
 docker run -i --rm -e URL=${datasource_admin_username}/${datasource_admin_password}@//${datasource_instance_ip}:${datasource_instance_port}/${datasource_instance_name} harborka.qianfan123.com/toolset/sqlplus:11.2 <<EOF
 CREATE USER ${datasource_transfer_username} IDENTIFIED BY "${datasource_transfer_password}" DEFAULT TABLESPACE HDAPP TEMPORARY TABLESPACE TEMPHDAPP QUOTA UNLIMITED ON HDAPP;
@@ -28,6 +33,10 @@ commit;
 exit
 EOF
 
+echo ""
+echo ""
+echo ""
+echo ""
 
 echo "开始执行transfer初始化SQL"
 docker run -i --rm -e URL=${datasource_transfer_username}/${datasource_transfer_password}@//${datasource_instance_ip}:${datasource_instance_port}/${datasource_instance_name} harborka.qianfan123.com/toolset/sqlplus:11.2 <<EOF
@@ -213,6 +222,10 @@ commit;
 exit
 EOF
 
+echo ""
+echo ""
+echo ""
+echo ""
 
 echo "transfer数据库用户名: ${datasource_transfer_username}"
 echo "transfer数据库密码: ${datasource_transfer_password}"

@@ -27,6 +27,7 @@ docker run -i --rm -e URL=${datasource_admin_username}/${datasource_admin_passwo
 CREATE USER ${datasource_transfer_username} IDENTIFIED BY "${datasource_transfer_password}" DEFAULT TABLESPACE HDAPP TEMPORARY TABLESPACE TEMPHDAPP QUOTA UNLIMITED ON HDAPP;
 Grant connect, resource to ${datasource_transfer_username}; 
 Grant select any table to ${datasource_transfer_username};
+# zl-portal-sync组件所需要的权限
 GRANT CREATE TABLE TO ${datasource_transfer_username};
 GRANT CREATE PROCEDURE TO ${datasource_transfer_username};
 commit;
